@@ -5,11 +5,12 @@ $(document).ready(function () {
 
    const reloadInfo = function() {
 
-      const queryString = window.location.search;
+   const queryString = window.location.search;
    const urlParams = new URLSearchParams(queryString);
+   const user = urlParams.get('user') ? urlParams.get('user').toLowerCase() : urlParams.get('user');
 
    $.ajax({
-      url: `https://tiltify.com/api/v3/users/${urlParams.get('user')}`,
+      url: `https://tiltify.com/api/v3/users/${user}`,
       data: {},
       method: 'GET',
       headers: {
@@ -51,7 +52,7 @@ $(document).ready(function () {
             console.log(parentCauseResp);
 
             var streamer = $('#streamer-name');
-            $(streamer).html(`${urlParams.get('user')}`);
+            $(streamer).html(user);
 
             var raised = $('#money-raised-number');
             $(raised).html(`$${ourUsersCause.totalAmountRaised}`);
