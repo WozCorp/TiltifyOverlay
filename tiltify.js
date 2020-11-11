@@ -7,7 +7,7 @@ $(document).ready(function () {
 
    const queryString = window.location.search;
    const urlParams = new URLSearchParams(queryString);
-   const user = urlParams.get('user') ? urlParams.get('user').toLowerCase() : urlParams.get('user');
+   var user = urlParams.get('user') ? urlParams.get('user').toLowerCase() : urlParams.get('user');
 
    $.ajax({
       url: `https://tiltify.com/api/v3/users/${user}`,
@@ -18,6 +18,7 @@ $(document).ready(function () {
             'Bearer 0a1a5d1e492e622f10bbe2cbee1be5bca9706e92957f8da078b69e051a791552',
       },
    }).then(function (userIDResp) {
+      if(userIDResp && userIDResp.data) user = userIDResp.data.username;
       $.ajax({
          url: `https://tiltify.com/api/v3/users/${userIDResp.data.id}/campaigns`,
          data: {},
