@@ -56,16 +56,16 @@ $(document).ready(function () {
             $(streamer).html(user);
 
             var raised = $('#money-raised-number');
-            $(raised).html(`$${ourUsersCause.totalAmountRaised}`);
+            $(raised).html(`$${parseFloat(ourUsersCause.totalAmountRaised).toFixed(2)}`);
 
             var userGoal = $('#user-goal');
-            $(userGoal).html(`$${ourUsersCause.fundraiserGoalAmount}`);
+            $(userGoal).html(`$${parseFloat(ourUsersCause.fundraiserGoalAmount).toFixed(2)}`);
 
             var total = $('#money-raised-total');
-            $(total).html(`$${parentCauseResp.data.totalAmountRaised}`);
+            $(total).html(`$${parseFloat(parentCauseResp.data.totalAmountRaised).toFixed(2)}`);
 
             var totalGoal = $('#total-goal');
-            $(totalGoal).html(`$${parentCauseResp.data.fundraiserGoalAmount}`);
+            $(totalGoal).html(`$${parseFloat(parentCauseResp.data.fundraiserGoalAmount).toFixed(2)}`);
          });
       });
    });
