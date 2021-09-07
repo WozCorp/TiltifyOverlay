@@ -3,10 +3,9 @@ body {
 }
 
 .wrapper {
-   width: 400px;
-   height: 120px;
-   background-color: #ffec97;
-   background-image: url('./background.png');
+   width: 1920px;
+   height: 1080px;
+   background-image: url('./DonationBar_1080.png');
    overflow: hidden;
 }
 
